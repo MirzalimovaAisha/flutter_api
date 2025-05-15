@@ -21,6 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
     var data = jsonDecode(response.body.toString());
     if (response.statusCode == 200) {
+      postList.clear();
       for (Map i in data) {
         postList.add(PostsModel.fromJson(i));
       }
@@ -52,9 +53,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Title\n ${postList[index].title.toString()}'),
+                              Text('Title', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                              Text(postList[index].title.toString()),
                               SizedBox(height: 10,),
-                              Text('Description\n ${postList[index].body.toString()}')
+                              Text('Description', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                              Text(postList[index].body.toString())
                             ],
                           ),
                         ),
