@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_api/ui/example_fiver.dart';
+import 'package:flutter_api/ui/example_three.dart';
 import 'package:flutter_api/ui/example_two.dart';
 import 'package:flutter_api/ui/home_screen.dart';
+import 'package:flutter_api/ui/login.dart';
+import 'package:flutter_api/ui/sign_up.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,8 +18,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ExampleTwo(),
-      // home: HomeScreen(),
+      initialRoute: '/',
+      routes: {
+        '/' : (context) => SignUp(),
+        '/login' : (context) => Login(),
+      },
     );
   }
 }
